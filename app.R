@@ -13,7 +13,11 @@ ui <- fluidPage(
     textOutput(outputId = "distLabel",inline = T),
     textOutput(outputId = "meanValue",inline = T)
     ),
-  plotOutput(outputId = "myPlot")
+  plotOutput(outputId = "myPlot"),
+  tags$script(HTML("if (location.search.length>3){ 
+    document.querySelector('input').value=location.search.slice(1)
+    document.querySelector('button').click()
+  }"))
   );
 
 server <- function(input, output){
